@@ -1,0 +1,1 @@
+Basic library using HTML, CSS, and JavaScript
