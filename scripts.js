@@ -2,10 +2,10 @@ let myLibrary = [];
 const container = document.querySelector('#container');
 
 function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+  this.title = form.title.value;
+  this.author = form.author.value;
+  this.pages = form.pages.value;
+  this.read = form.read.checked;
 }
 
 function addBookToLibrary(book) {
@@ -13,6 +13,10 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
+  const books = document.querySelectorAll('.book');
+  books.forEach(book => {
+    container.removeChild(book);
+  })
   myLibrary.forEach(book => {
     const div = document.createElement('div');
     div.classList.add('book')
@@ -52,4 +56,15 @@ window.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
   }
+})
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  modal.style.display = 'none';
+
+  let newBook = new Book(title, author, pages, read);
+  addBookToLibrary(newBook);
+  displayLibrary();
+  form.reset();
 })
