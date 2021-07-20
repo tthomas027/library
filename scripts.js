@@ -24,9 +24,9 @@ function displayLibrary() {
     pages.textContent = book.pages + ' pages long.'
     const read = document.createElement('p');
     if (book.read) {
-      read.textContent = 'Book finished.'
+      read.textContent = 'Book read.'
     } else {
-      read.textContent = 'Book not finished yet.'
+      read.textContent = 'Book unread.'
     }
     div.appendChild(title);
     div.appendChild(author);
@@ -35,3 +35,21 @@ function displayLibrary() {
     container.appendChild(div);
   })
 }
+
+const newBook = document.querySelector('#new');
+const modal = document.querySelector("#formModal");
+const close = document.querySelector('#close');
+
+newBook.addEventListener('click', () => {
+  modal.style.display = 'block';
+})
+
+close.addEventListener('click', () => {
+  modal.style.display = 'none';
+})
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+})
