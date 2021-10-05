@@ -1,15 +1,16 @@
 let myLibrary = [];
 const container = document.querySelector('#container');
 
-function Book(title, author, pages, read) {
-  this.title = form.title.value;
-  this.author = form.author.value;
-  this.pages = form.pages.value;
-  this.read = form.read.checked;
-}
-
-Book.prototype.changeRead = function(){
-  this.read = !this.read;
+class Book{
+  constructor (title, author, pages, read) {
+    this.title = form.title.value;
+    this.author = form.author.value;
+    this.pages = form.pages.value;
+    this.read = form.read.checked;
+  }
+  changeRead() {
+    this.read = !this.read;
+  }
 }
 
 function addBookToLibrary(book) {
